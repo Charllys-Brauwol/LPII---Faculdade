@@ -29,9 +29,7 @@ public class TrocaNumero {
         
         System.out.println("Primeiro Numero:" + numA);
         System.out.println("Segundo Numero:" + numB);
-        System.out.println("Ordem Inversa\n: " +numB);
-        System.out.println("e\n" +numA
-        );
+        System.out.println("Ordem Inversa: " +numB+ " e " +numA);
  
     }
     
