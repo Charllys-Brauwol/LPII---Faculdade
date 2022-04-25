@@ -12,7 +12,6 @@ public class Ingresso {
         System.out.println("O valor é: " + valor);
     }
     
-    
     public float getValor() {
         return valor;
     }
