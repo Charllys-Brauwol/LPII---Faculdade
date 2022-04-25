@@ -6,7 +6,7 @@ package projetoingresso;
  * @author Charllys e Jonas
  */
 public class Ingresso {
-    float valor = 30.00f;
+    float valor = (float) 30.00;
     
     public void imprimirValor(){
         System.out.println("O valor é: " + valor);

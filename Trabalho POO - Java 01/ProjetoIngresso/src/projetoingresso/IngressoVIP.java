@@ -7,12 +7,12 @@ package projetoingresso;
  */
 public class IngressoVIP extends Ingresso {
     
+    
 
     public IngressoVIP() {
-        this.valor = this.valor + 10.00f;
+        this.valor = (float) (this.valor + 10.00);
     }
 
-    
     
     
     
