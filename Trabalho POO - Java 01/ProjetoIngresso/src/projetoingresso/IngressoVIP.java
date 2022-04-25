@@ -6,13 +6,12 @@ package projetoingresso;
  * @author Charllys e Jonas
  */
 public class IngressoVIP extends Ingresso {
-    
-    
-
-    public IngressoVIP() {
-        this.valor = (float) (this.valor + 10.00);
+     
+      
+    public float valor() {
+        return this.getValor() + 10.00f;
     }
-
+   
     
     
     
