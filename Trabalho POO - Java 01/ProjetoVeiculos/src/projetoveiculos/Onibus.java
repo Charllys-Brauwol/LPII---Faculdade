@@ -23,8 +23,8 @@ public class Onibus extends Veiculos{
     }
     
     public void exibirDados(){
-        System.out.println("O onibus placa: " + placa + 
-                            "\nAno: " + ano +
-                            "\nTem: " + assentos + " assentos.\n");
+        System.out.println("O onibus placa: " + this.getPlaca() + 
+                            "\nAno: " + this.getAno() +
+                            "\nTem: " + this.getAssentos() + " assentos.\n");
     }
 }

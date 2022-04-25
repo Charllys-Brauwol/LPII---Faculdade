@@ -23,8 +23,8 @@ public class Caminhao extends Veiculos{
     }
     
     public void exibirDados(){
-        System.out.println("O caminhao placa: " + placa + 
-                            "\nAno: " + ano +
-                            "\nTem: " + eixos + " eixos.\n");
+        System.out.println("O caminhao placa: " + this.getPlaca() + 
+                            "\nAno: " + this.getAno() +
+                            "\nTem: " + this.getEixos() + " eixos.\n");
     }
 }

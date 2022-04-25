@@ -23,9 +23,9 @@ public class Motocicleta extends Veiculos{
     }
     
     public void exibirDados(){
-        System.out.println("A moto placa: " + placa +
-                            "\nAno: " + ano +
-                            "\nTem " + cilindradas + " cilidradas!\n");
+        System.out.println("A moto placa: " + this.getPlaca() +
+                            "\nAno: " + this.getAno() +
+                            "\nTem " + this.getCilindradas() + " cilidradas!\n");
     }
     
 }

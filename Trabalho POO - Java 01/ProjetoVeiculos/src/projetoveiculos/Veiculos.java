@@ -6,8 +6,8 @@ package projetoveiculos;
  * @author Charllys e Jonas
  */
 public class Veiculos {
-    String placa;
-    int ano;
+    private String placa;
+    private int ano;
 
     public Veiculos(String placa, int ano) {
         this.placa = placa;
