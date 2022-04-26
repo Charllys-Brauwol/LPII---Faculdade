@@ -4,6 +4,8 @@ package projetoveiculos;
 /**
  *
  * @author Charllys e Jonas
+ * 4. Implemente um projeto a partir do UML apresentado abaixo:
+
  */
 public class Veiculos {
     private String placa;
@@ -30,6 +32,5 @@ public class Veiculos {
         this.ano = ano;
     }
     
-    public void exibirDados(){};
-    }
+}
     
