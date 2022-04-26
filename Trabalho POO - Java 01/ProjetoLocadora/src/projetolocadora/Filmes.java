@@ -44,8 +44,8 @@ public class Filmes {
     }
     
     public void imprimir(){
-        System.out.println("Filme: " +titulo+
-                            "\nCategorai: " +categoria+
+        System.out.println("Filme: " +this.titulo+
+                            "\nCategorai: " +this.categoria+
                             "\nValor: " +valor()+
                             "\n");
     }

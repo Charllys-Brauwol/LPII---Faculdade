@@ -4,6 +4,7 @@ package projetolocadora;
 /**
  *
  * @author Charllys e Jonas
+ * Crie um programa para um sistema de locação de filmes digitais.
  */
 public class ProjetoLocadora {
 
