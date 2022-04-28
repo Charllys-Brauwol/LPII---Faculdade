@@ -21,6 +21,8 @@ public class Ingresso {
     }
     
     public void imprimirValor(){
-        System.out.println("O valor e: " + valor());
+        System.out.println("O valor e: " + this.getValor());
     }
+    
+    
 }
