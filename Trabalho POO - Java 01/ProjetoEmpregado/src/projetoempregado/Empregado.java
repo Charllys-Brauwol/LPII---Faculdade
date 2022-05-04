@@ -41,4 +41,7 @@ public abstract class Empregado {
     }
     
     public abstract double vencimento();
+    
+    public abstract void exibir();
+    
 }

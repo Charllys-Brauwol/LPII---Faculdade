@@ -37,5 +37,10 @@ public class Comissionado extends Empregado{
         return salario;
     }
     
+    @Override
+    public void exibir() {
+        System.out.println("SUA VENDA TOTAL FOI: " + this.getTotalVendas());
+        System.out.println("SUA TAXA DE COMISSAO FOI " + this.getTaxasComissao());
+    }
     
 }

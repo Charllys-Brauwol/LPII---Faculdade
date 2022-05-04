@@ -25,4 +25,9 @@ public class Assalariado extends Empregado {
     public double vencimento() {
         return this.getSalario();
     }
+
+    @Override
+    public void exibir() {
+        
+    }
 }

@@ -7,16 +7,21 @@ package projetoempregado;
 public class ProjetoEmpregado {
 
     public static void main(String[] args) {
-        Horista h = new Horista(25, 100, "Pedro", "Chico", "123");
-        System.out.println(h.getNome() + " RECEBE " + h.vencimento());
+        Assalariado a = new Assalariado(1400, "Joao ", "Da Silva", "123");
+        System.out.println(a.getNome() + a.getSobrenome() + " RECEBE UM SALARIO DE " + a.vencimento() + " E POSSUI O CPF" + a.getCpf());
         System.out.println("====================");
         
-        Comissionado b = new Comissionado(50000, 5, "Chiquinho", "Fco", "123");
-        System.out.println(b.getNome() + " RECEBE " + b.vencimento());
+        Comissionado b = new Comissionado(1500, 5, "Joao", "Da Silva", "123");
+        System.out.println(a.getNome() + a.getSobrenome() + " RECEBE UM SALARIO DE " + a.vencimento() + " E POSSUI O CPF" + a.getCpf());
+        b.exibir();
         System.out.println("====================");
         
-        Assalariado a = new Assalariado(1500, "Pedrinho", "Corrinho", "123");
-        System.out.println(a.getNome() + " RECEBE " + a.vencimento());
+        Horista h = new Horista(25, 100, "Joao", "Da Silva", "123");
+        System.out.println(a.getNome() + a.getSobrenome() + " RECEBE UM SALARIO DE " + a.vencimento() + " E POSSUI O CPF" + a.getCpf());
+        h.exibir();
+        
+        
+        
     }
     
 }

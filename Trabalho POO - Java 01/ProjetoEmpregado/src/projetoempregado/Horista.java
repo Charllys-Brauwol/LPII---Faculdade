@@ -35,5 +35,10 @@ public class Horista extends Empregado {
     public double vencimento() {
         return this.getHorasTrabalhadas()*this.getPrecoHoras();
     }
-
+    
+    @Override
+    public void exibir() {
+        System.out.println("VALOR DA HORA: " + this.getPrecoHoras());
+        System.out.println("TOTAL DE HORAS TABALHADAS " + this.getHorasTrabalhadas());
+    }
 }
