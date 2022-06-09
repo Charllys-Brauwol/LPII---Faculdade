@@ -1,4 +1,5 @@
 
+import com.mysql.jdbc.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -200,12 +201,35 @@ public class CadPessoa extends javax.swing.JFrame {
         }
         
         //Verificação se os outros dados foram preenchidos
-        if(nome.equals("") || email.equals("")){
-            JOptionPane.showMessageDialog(null, "Preencha Todos os Campos!");
-        }else{
-            
+        System.out.println("Opaaaaaa!");
+        if (nome.equals("") || email.equals("")) {
+            JOptionPane.showMessageDialog(null, "Ops! "
+                    + "Preencha todos os campos para continuar!");
+        } else {
+            try {
+                Conexao con = new Conexao();
+
+                java.sql.Statement st = con.conexao.createStatement();
+
+                String sql = "INSERT INTO pessoas (nome, email, serie, senha, isAdmin) VALUES ('" + nome + "','" + email + "','" + serie + "','" + senha + "','" + admin + "' )";
+
+                if (st.execute(sql)) {
+                    JOptionPane.showMessageDialog(null, "Ops! Algo errado");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Dados inseridos com sucesso!");
+                    jTextNome1.setText("");
+                    jTextEmail.setText("");
+                    jPasswordSenha.setText("");
+                    jComboAdm.setSelectedIndex(0);
+                    jComboSerie.setSelectedIndex(0);
+                }
+
+            } catch (Exception e) {
+                System.out.println("erro");
+            }
         }
-        
+               
+       
     }//GEN-LAST:event_jButtonSalvarPessoaActionPerformed
 
     private void jComboAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboAdmActionPerformed
