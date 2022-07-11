@@ -1,3 +1,8 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -27,16 +32,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         logoPrincipal = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jButtonVeiculos = new javax.swing.JButton();
+        jButtonViagens = new javax.swing.JButton();
+        jButtonAbastecimento = new javax.swing.JButton();
+        jButtonFuncionarios = new javax.swing.JButton();
+        jButtonCidades = new javax.swing.JButton();
+        jButtonCidades1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -46,82 +47,129 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         logoPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo SIS-PROVENET-2.png"))); // NOI18N
 
+        jButtonVeiculos.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonVeiculos.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jButtonVeiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imgVeicMenu.png"))); // NOI18N
+        jButtonVeiculos.setText("FROTA");
+        jButtonVeiculos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jButtonVeiculos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonVeiculosMouseClicked(evt);
+            }
+        });
+
+        jButtonViagens.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonViagens.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jButtonViagens.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imagemViagens.png"))); // NOI18N
+        jButtonViagens.setText("VIAGENS");
+        jButtonViagens.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jButtonViagens.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonViagensMouseClicked(evt);
+            }
+        });
+        jButtonViagens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonViagensActionPerformed(evt);
+            }
+        });
+
+        jButtonAbastecimento.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonAbastecimento.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jButtonAbastecimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/abastecimentoIMG (1).png"))); // NOI18N
+        jButtonAbastecimento.setText("ABASTECIMENTO");
+        jButtonAbastecimento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jButtonAbastecimento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAbastecimentoMouseClicked(evt);
+            }
+        });
+
+        jButtonFuncionarios.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonFuncionarios.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jButtonFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imgFuncionarios.png"))); // NOI18N
+        jButtonFuncionarios.setText("FUNCIONÁRIOS");
+        jButtonFuncionarios.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jButtonFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonFuncionariosMouseClicked(evt);
+            }
+        });
+
+        jButtonCidades.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonCidades.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jButtonCidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imgCidades.png"))); // NOI18N
+        jButtonCidades.setText("CIDADES");
+        jButtonCidades.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jButtonCidades.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonCidadesMouseClicked(evt);
+            }
+        });
+
+        jButtonCidades1.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonCidades1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jButtonCidades1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/sair (1).png"))); // NOI18N
+        jButtonCidades1.setText("SAIR");
+        jButtonCidades1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jButtonCidades1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonCidades1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                        .addComponent(jButtonVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonCidades, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCidades1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonAbastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonViagens, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(95, 95, 95))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(293, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logoPrincipal)
-                .addGap(253, 253, 253))
+                .addGap(261, 261, 261))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(196, 196, 196)
                 .addComponent(logoPrincipal)
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jButtonAbastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jButtonViagens, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(60, 60, 60)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCidades, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCidades1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
-
-        jMenu1.setText("Veículos");
-
-        jMenuItem1.setText("KM Viagens");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Abastecimentos");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Funcionários");
-
-        jMenuItem3.setText("Gerência");
-        jMenu2.add(jMenuItem3);
-
-        jMenuItem4.setText("Técnicos");
-        jMenu2.add(jMenuItem4);
-
-        jMenuItem6.setText("Atendimento");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem6);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("End. das Lojas");
-
-        jMenuItem5.setText("Cidades");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu3);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,22 +182,50 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        TelaKilometragens telakilometragens = new TelaKilometragens();
-        telakilometragens.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jButtonViagensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViagensActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jButtonViagensActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    private void jButtonFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFuncionariosMouseClicked
+        CadastrarFuncionario telaFuncionarios = new CadastrarFuncionario();
+        telaFuncionarios.setVisible(true);
+    }//GEN-LAST:event_jButtonFuncionariosMouseClicked
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    private void jButtonVeiculosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVeiculosMouseClicked
+        Veiculos telaVeiculos = new Veiculos();
+        telaVeiculos.setVisible(true);
+    }//GEN-LAST:event_jButtonVeiculosMouseClicked
+
+    private void jButtonAbastecimentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAbastecimentoMouseClicked
+        Abastecimentos telaAbastecimentos;
+        try {
+            telaAbastecimentos = new Abastecimentos();
+            telaAbastecimentos.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButtonAbastecimentoMouseClicked
+
+    private void jButtonViagensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonViagensMouseClicked
+        Viagens telaViagens;
+        try {
+            telaViagens = new Viagens();
+            telaViagens.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButtonViagensMouseClicked
+
+    private void jButtonCidadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCidadesMouseClicked
+        Cidades telaCidades = new Cidades();
+        telaCidades.setVisible(true);
+    }//GEN-LAST:event_jButtonCidadesMouseClicked
+
+    private void jButtonCidades1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCidades1MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jButtonCidades1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -187,16 +263,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JButton jButtonAbastecimento;
+    private javax.swing.JButton jButtonCidades;
+    private javax.swing.JButton jButtonCidades1;
+    private javax.swing.JButton jButtonFuncionarios;
+    private javax.swing.JButton jButtonVeiculos;
+    private javax.swing.JButton jButtonViagens;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logoPrincipal;
     // End of variables declaration//GEN-END:variables

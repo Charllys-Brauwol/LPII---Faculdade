@@ -1,4 +1,9 @@
 
+import java.awt.HeadlessException;
+import java.awt.Menu;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 
@@ -43,7 +48,6 @@ public class TelaLogin extends javax.swing.JFrame {
         jButtonSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 600));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 0));
@@ -53,7 +57,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
         logoSENHA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/senha.png"))); // NOI18N
 
+        jTextEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextEmail.setToolTipText("Digite seu Usuário");
         jTextEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jTextEmail.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextEmail.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextEmailActionPerformed(evt);
@@ -65,14 +73,18 @@ public class TelaLogin extends javax.swing.JFrame {
         logoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/faça o login.png"))); // NOI18N
         logoLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
+        jPasswordUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPasswordUsuario.setToolTipText("senha");
         jPasswordUsuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPasswordUsuario.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jPasswordUsuario.setSelectionColor(new java.awt.Color(255, 255, 255));
         jPasswordUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordUsuarioActionPerformed(evt);
             }
         });
 
-        jButtonLogin.setBackground(new java.awt.Color(102, 255, 102));
+        jButtonLogin.setBackground(new java.awt.Color(153, 255, 0));
         jButtonLogin.setText("ENTRAR");
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,31 +105,31 @@ public class TelaLogin extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(142, Short.MAX_VALUE)
+                .addGap(75, 75, 75)
+                .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(146, 146, 146)
-                        .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(logoLogin)
+                        .addGap(249, 249, 249))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(logoPrincipal)
-                        .addGap(166, 166, 166))
+                        .addGap(265, 265, 265))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(logoEMAIL)
-                                .addGap(85, 85, 85))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextEmail)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(87, 87, 87)
-                                    .addComponent(logoSENHA))
-                                .addComponent(jPasswordUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(logoLogin)
-                                .addGap(38, 38, 38)))
-                        .addGap(112, 112, 112)))
-                .addGap(99, 99, 99))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPasswordUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(137, 137, 137))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(logoSENHA)
+                        .addGap(287, 287, 287))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(logoEMAIL)
+                        .addGap(285, 285, 285))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,16 +141,16 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(logoEMAIL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(logoSENHA)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                    .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,37 +169,51 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextEmailActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextEmailActionPerformed
 
     private void jPasswordUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordUsuarioActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jPasswordUsuarioActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        // botão de login
-        //Variável emailRecebido recebe os dados digitados pelo usuário no campo e-mail
-        String emailRecebido = jTextEmail.getText();
-        //Converte a senha que tem lá(****) em texto/String que foi digitada realmente.
-        String senhaRecebida = String.valueOf(jPasswordUsuario.getPassword());
+        String email = jTextEmail.getText();
+        String senha = String.valueOf(jPasswordUsuario.getPassword());
         
-        //Criando usuários e senhas enquanto não usa BD
-        String emailCorreto = "charllys";
-        String senhaCorreta = "123";
-        
-        //Comparações de String em Java são feitas com equals
-        if(emailRecebido.equals(emailCorreto) && senhaRecebida.equals(senhaCorreta)){
-            //Fechar a tela sem encerrar o programa
-            this.dispose();
-            //Chamar a Próxima Tela
-            TelaPrincipal telaPrincipal = new TelaPrincipal();
-            telaPrincipal.setVisible(true);
-            
-       }else{
-            JOptionPane.showMessageDialog(null, "Senha ou E-mail Errado!");
-            //Limpando as caixas de texto
-            jTextEmail.setText("");
-            jPasswordUsuario.setText("");
+        String nomeCorreto = "";
+        String senhaCorreta = "";
+        try {
+            Conexao con = new Conexao();
+
+            System.out.println("Conectado");
+
+            Statement st = (Statement) con.conexao.createStatement();
+            String sql = "SELECT * FROM logins WHERE usuario = '"+email+"' AND senha = '"+senha+"'" ;
+            System.out.println(sql);
+            ResultSet resultado = st.executeQuery(sql);
+
+            while (resultado.next()) {
+                nomeCorreto = resultado.getString("usuario");
+                senhaCorreta = resultado.getString("senha");
+                System.out.println(nomeCorreto);
+
+            }
+
+            if (email.equals("") || senha.equals("")) {
+                JOptionPane.showMessageDialog(null, "Informe Usuário de Senha para logar!");
+            } else {
+                if (!nomeCorreto.isEmpty() && !senhaCorreta.isEmpty()) {
+                    TelaPrincipal telaPrincipal = new TelaPrincipal();
+                    telaPrincipal.setVisible(true);
+                    this.dispose();
+                }else{
+                     JOptionPane.showMessageDialog(null, "Dados Incorretos!");
+                }
+
+            }
+              
+        } catch (HeadlessException | SQLException e) {
+            System.out.println("Erro!");
         }
         
     }//GEN-LAST:event_jButtonLoginActionPerformed
