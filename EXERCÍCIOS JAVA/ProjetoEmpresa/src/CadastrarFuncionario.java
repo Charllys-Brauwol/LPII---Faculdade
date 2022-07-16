@@ -350,7 +350,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         String bairro = jTextBairro.getText();
         String cidade = jTextCidade.getText();
 
-        if (nomeFuncionario.equals("")|| rg.equals("")|| cpf.equals("")|| telefone.equals("")|| rua.equals("")|| numero.equals("")|| bairro.equals("")|| cidade.equals("")) {
+        if (nomeFuncionario.equals("")|| funcao.equals("CARGO") || rg.equals("")|| cpf.equals("")|| telefone.equals("")|| rua.equals("")|| numero.equals("")|| bairro.equals("")|| cidade.equals("")) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
         } else {
             try {
@@ -432,7 +432,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         String bairro = jTextBairro.getText();
         String cidade = jTextCidade.getText();
 
-        if (!nomeFuncionario.isEmpty()) {
+        if (!nomeFuncionario.isEmpty()|| !funcao.equals("CARGO") ) {
             try {
                 Conexao con = new Conexao();
                 java.sql.Statement st = con.conexao.createStatement();

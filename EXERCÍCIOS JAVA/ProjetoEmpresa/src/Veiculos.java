@@ -72,7 +72,7 @@ public class Veiculos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "VEICULO", "PLACA", "ANO", "COR"
+                "ID", "VEICULO", "PLACA", "COR", "ANO"
             }
         ) {
             boolean[] canEdit = new boolean [] {

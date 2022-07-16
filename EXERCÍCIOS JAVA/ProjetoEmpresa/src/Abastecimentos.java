@@ -111,11 +111,11 @@ public class Abastecimentos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "FUNCIONARIO", "VEICULO", "DATA", "VALOR", "KM", "POSTO"
+                "ID", "FUNCIONARIO", "VEICULO", "DATA", "VALOR", "KM", "POSTO", "SAIDA", "DESTINO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -345,8 +345,8 @@ public class Abastecimentos extends javax.swing.JFrame {
         String posto = jTextFieldPosto.getText();
         String local_saida = jTextFieldSaida.getText();
         String local_destino = jTextFieldDestino.getText();
-
-        if (funcionario.equals("") || veiculo.equals("") || data_viagem.equals("") || valor_abastecimento.equals("") || km_veiculo.equals("") || posto.equals("") || local_saida.equals("") || local_destino.equals("")) {
+        
+        if (data_viagem.equals("") || valor_abastecimento.equals("") || km_veiculo.equals("") || posto.equals("") || local_saida.equals("") || local_destino.equals("")) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
         } else {
             try {
@@ -396,7 +396,7 @@ public class Abastecimentos extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxFuncionarioKeyPressed
 
     private void jTableAbastecimentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAbastecimentoMouseClicked
-        jButtonExcluir.setEnabled(true);
+       jButtonExcluir.setEnabled(true);
         jButtonEditar.setEnabled(true);
         jButtonSalvar.setEnabled(false);
         
@@ -408,12 +408,16 @@ public class Abastecimentos extends javax.swing.JFrame {
         String valor = jTableAbastecimento.getValueAt(row, 4).toString();
         String km = jTableAbastecimento.getValueAt(row, 5).toString();
         String posto = jTableAbastecimento.getValueAt(row, 6).toString();
+        String saida = jTableAbastecimento.getValueAt(row, 7).toString();
+        String destino = jTableAbastecimento.getValueAt(row, 8).toString();
 
         
         jTextFieldData.setText(data);
         jTextFieldValorAbastecimento.setText(valor);
         jTextFieldKmAbastecimento.setText(km);
         jTextFieldPosto.setText(posto);
+        jTextFieldSaida.setText(saida);
+        jTextFieldDestino.setText(destino);
     }//GEN-LAST:event_jTableAbastecimentoMouseClicked
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
@@ -600,13 +604,13 @@ public void chamarVeiculo() throws SQLException{
         }
 }
 
-public void popularTabelaAbastecimento() throws SQLException {
+    public void popularTabelaAbastecimento() throws SQLException {
 
-        DefaultTableModel model = (DefaultTableModel) jTableAbastecimento.getModel();
-        model.setNumRows(0);
-        
-        Conexao con = new Conexao();
-        java.sql.Statement st = con.conexao.createStatement();
+            DefaultTableModel model = (DefaultTableModel) jTableAbastecimento.getModel();
+            model.setNumRows(0);
+
+            Conexao con = new Conexao();
+            java.sql.Statement st = con.conexao.createStatement();
 
         String sql = "SELECT funcionarios.nome, veiculos.veiculo, abastecimento.* FROM `abastecimento` JOIN funcionarios ON funcionarios.id = abastecimento.funcionario JOIN veiculos ON veiculos.id = abastecimento.veiculo ORDER BY abastecimento.id DESC";
         
@@ -630,7 +634,9 @@ public void popularTabelaAbastecimento() throws SQLException {
                 dataFormatada,
                 resultado.getString("valor_abastecimento"),
                 resultado.getString("km_veiculo"),
-                resultado.getString("posto")
+                resultado.getString("posto"),
+                resultado.getString("local_saida"),
+                resultado.getString("local_destino")
             });
             } catch (ParseException ex) {
                 Logger.getLogger(Abastecimentos.class.getName()).log(Level.SEVERE, null, ex);

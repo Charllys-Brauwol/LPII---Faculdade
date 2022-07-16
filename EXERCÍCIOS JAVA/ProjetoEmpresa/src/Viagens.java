@@ -7,8 +7,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -74,7 +76,7 @@ public class Viagens extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "FUNCIONARIO", "VEICULO", "DATA", "SAÍDA", "DESTINO", "KM SAÍDA", "KM CHEGADA"
+                "ID", "FUNCIONARIO", "VEICULO", "SAÍDA", "DESTINO", "DATA", "KM SAÍDA", "KM CHEGADA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -220,7 +222,7 @@ public class Viagens extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextFieldDestino))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextData, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -602,5 +604,5 @@ public void limparCampos(){
         jTextData.setText("");
         jTextKmSaida.setText("");
         jTextKmChegada.setText("");
-}
+}   
 }
