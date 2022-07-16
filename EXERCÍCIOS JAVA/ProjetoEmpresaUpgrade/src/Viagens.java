@@ -74,7 +74,7 @@ public class Viagens extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "FUNCIONARIO", "VEICULO", "DATA", "SAÍDA", "DESTINO", "KM SAÍDA", "KM CHEGADA"
+                "ID", "FUNCIONARIO", "VEICULO", "SAÍDA", "DESTINO", "DATA", "KM SAÍDA", "KM CHEGADA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
